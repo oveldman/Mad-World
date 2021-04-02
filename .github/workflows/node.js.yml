@@ -29,5 +29,5 @@ jobs:
       working-directory: ./Website
     - run: npm run build --if-present
       working-directory: ./Website
-    - run: npm test
-      working-directory: ./Website
+  # - run: npm test
+  #   working-directory: ./Website
