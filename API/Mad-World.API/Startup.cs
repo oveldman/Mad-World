@@ -48,6 +48,11 @@ namespace Mad_World.API
 
             app.UseRouting();
 
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
