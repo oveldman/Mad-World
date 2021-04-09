@@ -17,3 +17,11 @@ apt-get update
 apt-get install -y apt-transport-https
 apt-get update
 apt-get install -y dotnet-sdk-5.0
+
+# Install Let's encrypt
+apt install snapd
+snap install core 
+snap refresh core
+snap install --classic certbot
+ln -s /snap/bin/certbot /usr/bin/certbot
+#certbot --nginx (Only when everything is ready!)
