@@ -8,6 +8,9 @@ import { AnonymousTopNavComponent } from './layout/anonymous/anonymous-top-nav/a
 import { AnonymousFooterComponent } from './layout/anonymous/anonymous-footer/anonymous-footer.component';
 import { AnonymousLayoutComponent } from './layout/anonymous/anonymous-layout/anonymous-layout.component';
 import { HomeComponent } from './pages/home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ResumeComponent } from './pages/resume/resume.component';
+import { ProjectsComponent } from './pages/projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { HomeComponent } from './pages/home/home.component';
     AnonymousTopNavComponent,
     AnonymousFooterComponent,
     AnonymousLayoutComponent,
-    HomeComponent
+    HomeComponent,
+    ResumeComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
