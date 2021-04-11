@@ -9,7 +9,7 @@ echo "Start deploying dotnet API."
 systemctl stop kestrel-madworldapi.service
 cd API/Mad-World.API
 dotnet restore
-dotnet publish --configuration Release --output ../../../Published/MadWorld/API
+dotnet publish --configuration Release --output ../../../../Published/MadWorld/API
 systemctl start kestrel-madworldapi.service
 echo "Dotnet API is deployed."
 
