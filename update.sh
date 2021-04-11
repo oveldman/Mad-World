@@ -2,6 +2,7 @@
 #Get latest sources and updates
 echo "Start script."
 apt update
+git reset --hard
 git pull
 
 #update API
