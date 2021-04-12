@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./anonymous-top-nav.component.scss']
 })
 export class AnonymousTopNavComponent implements OnInit {
-  public isMenuCollapsed = true;
+  public isMenuCollapsed: boolean = true;
 
   constructor() { }
 

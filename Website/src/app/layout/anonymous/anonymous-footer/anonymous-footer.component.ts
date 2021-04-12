@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./anonymous-footer.component.scss']
 })
 export class AnonymousFooterComponent implements OnInit {
+  public currentYear: number = 2021; 
 
   constructor() { }
 
   ngOnInit(): void {
+    this.currentYear = (new Date()).getFullYear();
   }
 
 }
