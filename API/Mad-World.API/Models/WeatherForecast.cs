@@ -1,6 +1,6 @@
 using System;
 
-namespace Mad_World.API
+namespace Mad_World.API.Models
 {
     public class WeatherForecast
     {
