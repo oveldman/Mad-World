@@ -1,6 +1,7 @@
 {
     "/api": {
       "target": "http://localhost:5000",
+      "_target": "https://www.mad-world.nl/api",
       "secure": false,
       "changeOrigin": true,
       "pathRewrite": {
