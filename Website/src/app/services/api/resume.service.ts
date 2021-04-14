@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
-import { IResume, Resume } from '../../models/api/resume';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { IResume } from '../../models/api/resume';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResumeService {
+  private basicResumeUrl: string =  "/api/resume";
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getBasicInformation() : IResume {
-    let resume: Resume = {
-      name: "Oscar Veldman"
-    }
-    
-    return resume;
+  getBasicInformation() : Observable<IResume> {
+    return this.http.get<IResume>(this.basicResumeUrl);
   }
 }

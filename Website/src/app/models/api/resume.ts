@@ -1,9 +1,9 @@
 export interface IResume {
-    name: String;
+    name: string;
 }
 
 export class Resume implements IResume {
-    public name: String;
+    public name: string;
 
     constructor() {
         this.name = "";

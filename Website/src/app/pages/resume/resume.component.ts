@@ -14,7 +14,12 @@ export class ResumeComponent implements OnInit {
   constructor(private resumeService: ResumeService) { }
 
   ngOnInit(): void {
-    this.resumeInfo = this.resumeService.getBasicInformation();
+    this.getInfo();
+  }
+
+  private getInfo() {
+    this.resumeService.getBasicInformation()
+      .subscribe((resumeInfo: IResume) => this.resumeInfo = resumeInfo);
   }
 
 }
