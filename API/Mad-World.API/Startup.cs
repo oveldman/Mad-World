@@ -2,11 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Mad_World.Business;
+using Mad_World.Business.Interfaces;
+using Mad_World.Database;
+using Mad_World.Database.Queries;
+using Mad_World.Database.Queries.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,12 +33,17 @@ namespace Mad_World.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
+
+            services.AddDbContext<MadWorldContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("MadWorldContext"), b => b.MigrationsAssembly("Mad-World.API")));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mad_World.API", Version = "v1" });
             });
+
+            AddClassesToScope(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +71,12 @@ namespace Mad_World.API
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private void AddClassesToScope(IServiceCollection services)
+        {
+            services.AddScoped<IResumeManager, ResumeManager>();
+            services.AddScoped<IResumeQuery, ResumeQuery>();
         }
     }
 }
