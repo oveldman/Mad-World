@@ -1,3 +1,36 @@
 <div class="container">
-    <p>My name is {{ resumeInfo.name }}</p>
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+           <h2>Resume</h2>
+        </div>
+        <div class="card-body backgroud-body-card">
+            <div class="row">
+                <div class="d-flex h-100">
+                    <div class="image_outer_container">
+                        <div class="image_inner_container">
+                            <img src="/assets/images/photos/OscarProfile.JPG">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="space-row">
+                <div class="row">
+                    <div class="col-3">
+                        <p><b>Name</b></p>
+                    </div>
+                    <div class="col">
+                        <p>{{ resumeInfo.name }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <p><b>Company</b></p>
+                    </div>
+                    <div class="col">
+                        <p>Bugs Business</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
