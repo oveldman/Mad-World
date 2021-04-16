@@ -26,6 +26,5 @@ npm update
 ng build --prod --output-path ../../../Published/MadWorld/Website
 rm -r /var/www/html/*
 mv ../../../Published/MadWorld/Website/* /var/www/html
-
 echo "Angular website is deployed."
 echo "The script is finsihed!"
