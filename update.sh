@@ -9,6 +9,8 @@ git pull
 echo "Start deploying dotnet API."
 systemctl stop kestrel-madworldapi.service
 cd API/Mad-World.API
+cp ../../../Settings/appsettings.Development.json .
+cp ../../../Settings/appsettings.json .
 dotnet restore
 dotnet publish --configuration Release --output ../../../../Published/MadWorld/API
 dotnet ef database update
