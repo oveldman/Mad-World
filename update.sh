@@ -4,6 +4,7 @@ echo "Start script."
 apt update
 git reset --hard
 git pull
+dotnet tool update --global dotnet-ef
 
 #update API
 echo "Start deploying dotnet API."
@@ -13,7 +14,8 @@ cp ../../../Settings/appsettings.Development.json .
 cp ../../../Settings/appsettings.json .
 dotnet restore
 dotnet publish --configuration Release --output ../../../../Published/MadWorld/API
-dotnet ef database update
+dotnet ef database update --context AuthenticationContext
+dotnet ef database update --context MadWorldContext
 systemctl start kestrel-madworldapi.service
 echo "Dotnet API is deployed."
 
