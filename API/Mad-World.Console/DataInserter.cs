@@ -1,26 +1,35 @@
 ﻿using System;
 using Mad_World.Database;
 using Mad_World.Database.Tables;
+using Microsoft.AspNetCore.Identity;
 
 namespace Mad_World.Console
 {
     public class DataInserter
     {
-        private MadWorldContext _context;
+        private MadWorldContext _madworldContext;
+        private AuthenticationContext _authenticationContext;
 
-        public DataInserter(MadWorldContext context)
+        public DataInserter(AuthenticationContext authenticationContext, MadWorldContext context)
         {
-            _context = context;
+            _authenticationContext = authenticationContext;
+            _madworldContext = context;
         }
 
         public void Insert()
         {
-            _context.Add(new Resume {
+            //AddResume();
+        }
+
+        private void AddResume()
+        {
+            _madworldContext.Add(new Resume
+            {
                 Name = "Oscar Veldman",
                 Created = DateTime.Now
             });
 
-            _context.SaveChanges();
+            _madworldContext.SaveChanges();
         }
     }
 }

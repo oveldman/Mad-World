@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Mad_World.API.Models;
 using Mad_World.Business.Interfaces;
 using Mad_World.Database.Tables;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -12,6 +13,7 @@ namespace Mad_World.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [AllowAnonymous]
     public class ResumeController : ControllerBase
     {
         private readonly ILogger<ResumeController> _logger;
