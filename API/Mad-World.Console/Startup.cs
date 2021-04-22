@@ -55,7 +55,7 @@ namespace Mad_World.Console
             var optionsBuilderAuthentication = new DbContextOptionsBuilder<AuthenticationContext>();
             optionsBuilder.UseNpgsql(_contectionAuthentication);
 
-            AuthenticationContext contextAuthentication = new AuthenticationContext(optionsBuilderAuthentication.Options);
+            AuthenticationContext contextAuthentication = new AuthenticationContext(optionsBuilderAuthentication.Options, null);
 
             Inserter = new(contextAuthentication, context);
         }
