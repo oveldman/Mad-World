@@ -10,7 +10,8 @@ namespace Mad_World.Console
     {
         private const bool Development = true;
         private static Startup _startup;
-        private string _connection;
+        private string _contectionAuthentication;
+        private string _connectionMadWorld;
         public DataInserter Inserter { get; private set; }
         private Startup() { }
         public static Startup Create()
@@ -38,18 +39,25 @@ namespace Mad_World.Console
                 .AddEnvironmentVariables();
 
             var config = builder.Build();
-            _connection = config["ConnectionStrings:MadWorldContext"];
+            _contectionAuthentication = config["ConnectionStrings:AuthenticationContext"];
+            _connectionMadWorld = config["ConnectionStrings:MadWorldContext"];
 
-            CreateShowCaseContext();
+            CreateMadWorldContext();
         }
 
-        private void CreateShowCaseContext()
+        private void CreateMadWorldContext()
         {
             var optionsBuilder = new DbContextOptionsBuilder<MadWorldContext>();
-            optionsBuilder.UseNpgsql(_connection);
+            optionsBuilder.UseNpgsql(_connectionMadWorld);
 
             MadWorldContext context = new MadWorldContext(optionsBuilder.Options);
-            Inserter = new(context);
+
+            var optionsBuilderAuthentication = new DbContextOptionsBuilder<AuthenticationContext>();
+            optionsBuilder.UseNpgsql(_contectionAuthentication);
+
+            AuthenticationContext contextAuthentication = new AuthenticationContext(optionsBuilderAuthentication.Options, null);
+
+            Inserter = new(contextAuthentication, context);
         }
     }
 }
