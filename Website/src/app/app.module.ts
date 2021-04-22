@@ -12,6 +12,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ResumeComponent } from './pages/resume/resume.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
+import { LoginComponent } from './pages/authentication/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProjectsComponent } from './pages/projects/projects.component';
     AnonymousLayoutComponent,
     HomeComponent,
     ResumeComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
