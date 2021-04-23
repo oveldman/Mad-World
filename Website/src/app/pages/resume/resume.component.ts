@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IResume, Resume } from 'src/app/models/api/resume';
-import { ResumeService } from './../../services/api/resume.service';
+import { ResumeService } from './../../services/api/resume/resume.service';
 
 @Component({
   selector: 'app-resume',

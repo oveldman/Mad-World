@@ -1,6 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { BrowserModule } from '@angular/platform-browser';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +14,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ResumeComponent } from './pages/resume/resume.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
+import { LoginComponent } from './pages/authentication/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +25,16 @@ import { ProjectsComponent } from './pages/projects/projects.component';
     AnonymousLayoutComponent,
     HomeComponent,
     ResumeComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

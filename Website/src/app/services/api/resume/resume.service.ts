@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IResume } from '../../models/api/resume';
+import { IResume } from '../../../models/api/resume';
 
 @Injectable({
   providedIn: 'root'
