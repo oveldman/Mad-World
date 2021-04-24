@@ -9,6 +9,7 @@ import { Login } from './../../../models/api/login'
   providedIn: 'root'
 })
 export class AuthenticationService {
+  private userTokenName: string = 'id_token';
 
   constructor(private http: HttpClient) { }
 
@@ -22,13 +23,18 @@ export class AuthenticationService {
 
     return this.http.post<Bearer>(url, login).pipe(map(bearerResponse => {
       if (bearerResponse.Succes) {
-        localStorage.setItem("id_token", bearerResponse.AccessToken); 
+        localStorage.setItem(this.userTokenName, bearerResponse.AccessToken); 
       }
       return bearerResponse;
      }));
   }
 
   logout() {
-    localStorage.removeItem("id_token");
+    localStorage.removeItem(this.userTokenName);
+  }
+
+  isUserLoggedIn(): boolean {
+    const idToken = localStorage.getItem(this.userTokenName);
+    return idToken != null;
   }
 }

@@ -47,5 +47,4 @@ export class LoginComponent implements OnInit {
     this.IsLoggedIn = idToken !== null;
     this.IsNotLoggedIn = !this.IsLoggedIn;
   }
-
 }

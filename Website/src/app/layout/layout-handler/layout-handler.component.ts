@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 
+import { AuthenticationService } from './../../services/api/authentication/authentication.service';
+
 @Component({
   selector: 'app-layout-handler',
   templateUrl: './layout-handler.component.html',
@@ -10,7 +12,7 @@ export class LayoutHandlerComponent implements OnInit {
   public IsLoggedIn : boolean = false;
   public IsNotLoggedIn : boolean = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.subscribeOnRouteInit();
@@ -24,9 +26,7 @@ export class LayoutHandlerComponent implements OnInit {
   }
 
   private checkIsLogin() {
-    const idToken = localStorage.getItem("id_token");
-    this.IsLoggedIn = idToken !== null;
+    this.IsLoggedIn = this.authenticationService.isUserLoggedIn();
     this.IsNotLoggedIn = !this.IsLoggedIn;
   }
-
 }

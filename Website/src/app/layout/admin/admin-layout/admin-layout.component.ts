@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+
+import { AuthenticationService } from './../../../services/api/authentication/authentication.service';
 
 @Component({
   selector: 'app-admin-layout',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
+  }
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    var isUserLoggedIn = this.authenticationService.isUserLoggedIn();
+
+    if (isUserLoggedIn) {
+      return true;
+    }
+
+    this.router.navigate(['/Login']);
+    return false;
   }
 
 }

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from '@angular/platform-browser';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageContentComponent } from './layout/page-content/page-content.component';
@@ -18,6 +19,7 @@ import { LoginComponent } from './pages/authentication/login/login.component';
 import { AdminLayoutComponent } from './layout/admin/admin-layout/admin-layout.component';
 import { LayoutHandlerComponent } from './layout/layout-handler/layout-handler.component';
 import { AdminTopNavComponent } from './layout/admin/admin-top-nav/admin-top-nav.component';
+import { AdminpanelComponent } from './pages/admin/adminpanel/adminpanel.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { AdminTopNavComponent } from './layout/admin/admin-top-nav/admin-top-nav
     LoginComponent,
     AdminLayoutComponent,
     LayoutHandlerComponent,
-    AdminTopNavComponent
+    AdminTopNavComponent,
+    AdminpanelComponent
   ],
   imports: [
     BrowserModule,
