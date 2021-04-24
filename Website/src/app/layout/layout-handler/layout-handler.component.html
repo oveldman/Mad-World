@@ -1,0 +1,6 @@
+<ng-container *ngIf="IsNotLoggedIn">
+    <app-anonymous-layout></app-anonymous-layout>
+</ng-container>
+<ng-container *ngIf="IsLoggedIn">
+    <app-admin-layout></app-admin-layout>
+</ng-container>

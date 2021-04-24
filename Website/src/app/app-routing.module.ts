@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AnonymousLayoutComponent } from './layout/anonymous/anonymous-layout/anonymous-layout.component';
+import { LayoutHandlerComponent } from './layout/layout-handler/layout-handler.component'
 import { HomeComponent } from './pages/home/home.component';
 import { ResumeComponent } from './pages/resume/resume.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
@@ -10,7 +10,7 @@ import { LoginComponent } from './pages/authentication/login/login.component';
 const routes: Routes = [ 
   {
     path: '',
-    component: AnonymousLayoutComponent,
+    component: LayoutHandlerComponent,
     children: [
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'Login', component: LoginComponent, pathMatch: 'full' },
